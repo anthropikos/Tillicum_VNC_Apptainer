@@ -160,7 +160,55 @@ From: ubuntu:22.04
 		tcsh \
 		xorg-dev \
 		xterm
+################################################################################
+	# Fixing missing libraries
+	apt-get install -yq \
+	    libpcre2-16-0 \
 
+	# Stuff installed by SlicerMorphDocker (with some modifications) - https://github.com/SlicerMorph/SlicerMorphDocker/blob/8c20695ed227675176162d25f253c1cf3ec3e57d/Dockerfile#L34
+	apt-get install -yq \
+		dbus-x11 \
+		emacs-nox \
+		firefox \
+		git \
+		libegl1-mesa \
+		libglu1-mesa \
+		libnss3 \
+		libpulse-mainloop-glib0 \
+		libxcb-icccm4 \
+		libxcb-image0 \
+		libxcb-keysyms1 \
+		libxcb-randr0 \
+		libxcb-render0 \
+		libxcb-render-util0 \
+		libxcb-xinerama0 \
+		libxcb-xkb1 \
+		libxkbcommon-x11-0 \
+		libxt6 \
+		libxtst6 \
+		libxv1 \
+		mate-terminal \
+		openbox-menu \
+		tint2 \
+		vim-common \
+		wget \
+		x11-utils \
+		x11-xkb-utils \
+		x11-xserver-utils \
+		xauth \
+		ssh-client \
+		pcmanfm \
+		xarchiver \
+		libgomp1 \
+		gdebi-core \
+		libxml2-dev \
+		libssl-dev \
+		libcurl4-openssl-dev \
+		cmake \
+		cmake-curses-gui \
+		curl \
+		gzip \
+################################################################################
 	# Clean up packages:
 	apt-get clean -y -qq && rm -rf /var/lib/apt/lists/*
 
@@ -223,5 +271,3 @@ From: ubuntu:22.04
 %runscript
 	# Run app vncserver:
 	exec /scif/apps/vncserver/scif/runscript "$@"
-
-

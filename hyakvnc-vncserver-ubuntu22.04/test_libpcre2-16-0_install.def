@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+
+%files
+
+%environment
+
+%post
+	
+	apt-get update -y -qq
+
+	# Fixing missing libraries
+	apt-get install -yq \
+	    libpcre2-16-0 \
